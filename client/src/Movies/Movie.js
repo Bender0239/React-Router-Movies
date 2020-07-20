@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 const Movie = (props) => {
   const [movie, setMovie] = useState();
   const { itemId } = useParams()
-  
+  const { addToSavedList } = props
 
   useEffect(() => {
     const id = itemId;
@@ -24,8 +24,9 @@ const Movie = (props) => {
   },[itemId]);
   
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = evt => {
-  // }
+  const saveMovie = evt => {
+      
+  }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -50,7 +51,7 @@ const Movie = (props) => {
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <div  onClick={addToSavedList} className="save-button">Save</div>
     </div>
   );
 }
